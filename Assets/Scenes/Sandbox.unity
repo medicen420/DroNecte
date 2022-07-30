@@ -1586,6 +1586,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaunchPad
       objectReference: {fileID: 0}
+    - target: {fileID: 5766118433838246666, guid: 4a87a11b635bcbd4d8d02353d8d0d603, type: 3}
+      propertyPath: m_TagString
+      value: Friendly
+      objectReference: {fileID: 0}
     - target: {fileID: 5766118433838246678, guid: 4a87a11b635bcbd4d8d02353d8d0d603, type: 3}
       propertyPath: m_RootOrder
       value: 3
