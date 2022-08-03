@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Collision_Handler : MonoBehaviour
 {
@@ -26,12 +27,26 @@ public class Collision_Handler : MonoBehaviour
                 //Si no es ninguno de los casos anteriores entonces
                 //ejecuta por default lo siguiente
             default:
-                Debug.Log("Sorry bitch");
+                ReloadLevel();
                 break;
 
 
         }
        
+    }
+
+
+    void ReloadLevel()
+    {
+        //Línea de código que me permite abrir una de las escenas
+        //mediante el tipeo de número de escena o el nombre en sí
+
+        //SceneManager.LoadScene(0);
+
+        //Estas líneas de código básicamente vuelven a cargar la escena que esta
+        //activa en ese momento 
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 
 }
