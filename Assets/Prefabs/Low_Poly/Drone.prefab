@@ -1959,6 +1959,7 @@ GameObject:
   - component: {fileID: 5529727306683078298}
   - component: {fileID: 411982720}
   - component: {fileID: 411982726}
+  - component: {fileID: 1433088251}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Untagged
@@ -2080,6 +2081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainThrust: 1000
   rotationThrust: 100
+  mainEngine: {fileID: 8300000, guid: 29f43554227ba274b80100c1dc3446cd, type: 3}
 --- !u!54 &411982720
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2106,9 +2108,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 29f43554227ba274b80100c1dc3446cd, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.368
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2192,6 +2194,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1433088251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6899611523581716961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a7eaf7db857644b896263ebe0b770f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelLoadDelay: 3
+  succes: {fileID: 8300000, guid: 661608a9e3918c541a12e8a83e78f63b, type: 3}
+  crash: {fileID: 8300000, guid: 1205bcf3b25dc0e42bd9b62a791c34bc, type: 3}
+  isTransitioning: 0
 --- !u!1 &8286232985277471887
 GameObject:
   m_ObjectHideFlags: 0

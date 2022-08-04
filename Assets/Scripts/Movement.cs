@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    Rigidbody rgb;
+    
     [SerializeField] float mainThrust = 100f;
     [SerializeField] float rotationThrust = 1f;
+    //Clip de audio para el motor del Drone
+    [SerializeField] AudioClip mainEngine;
+    
 
-    AudioSource aud;
+
+    Rigidbody rgb;
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         rgb = GetComponent<Rigidbody>();
-        aud = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -36,15 +41,21 @@ public class Movement : MonoBehaviour
             rgb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
             //Si no estás reproduciendo el audio...
             //entonces reprodúcelo
-            if (!aud.isPlaying)
+            if (!audioSource.isPlaying)
             {
-                aud.Play();
+                //Esta línea de código sirve únicamente si tenemos 
+                //1 solo clip de audio 
+                //aud.Play();
+
+                //Pero queremos tener múltiples clips de audio
+                audioSource.PlayOneShot(mainEngine);
+
             }
             
         }
         else
         {
-            aud.Stop();
+            audioSource.Stop();
         }
        
         
