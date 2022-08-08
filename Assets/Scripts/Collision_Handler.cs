@@ -7,26 +7,57 @@ public class Collision_Handler : MonoBehaviour
     //Esta es la variable que contiene el tiempo de retraso
     //para volver a cargar el nivel de juego
     [SerializeField] float levelLoadDelay = 2f;
-
-
-
-    
-    
     //Clip de audios para cuando llegamos a la meta final
     [SerializeField] AudioClip succes;
     //Clip de audio para cuando choque nuestro Drone
     [SerializeField] AudioClip crash;
 
+
+    //Partículas
+    [SerializeField] ParticleSystem succesParticles;
+    //Clip de audio para cuando choque nuestro Drone
+    [SerializeField] ParticleSystem crashParticles;
+
+
+
     AudioSource audioSource;
+
 
 
     //Si actualmente estamos en transición, entonces nmo hagas nada
     [SerializeField] bool isTransitioning = false;
 
+    bool collisionDisabled = false;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
+
+    void Update()
+    {
+        //RespondToDebugKeys();
+    }
+
+
+    //Debug Keys
+    /* void RespondToDebugKeys()
+     {
+         //En el momento que presionamos L
+         if (Input.GetKeyDown(KeyCode.L))
+         {
+             //Cargamos el siguiente nivel de juego
+             LoadNextLevel();
+         }
+         //Este código nos ayuda a desactivar las colisiones 
+         //si presionamos "C" en nuestro teclado
+         /*else if (Input.GetKeyDown(KeyCode.C))
+         {
+             collisionDisabled = !collisionDisabled;
+         }
+
+
+     }*/
 
 
     void OnCollisionEnter(Collision other)
@@ -44,7 +75,7 @@ public class Collision_Handler : MonoBehaviour
 
         //Si estamos en transición
         //no ejecutes nada de este método
-        if (isTransitioning)
+        if (isTransitioning || collisionDisabled)
             return;
 
         //Me acabo de dar cuenta de que esta es la forma en la que 
@@ -85,17 +116,24 @@ public class Collision_Handler : MonoBehaviour
 
     void StarSuccesSequence()
     {
+        //Las partículas se activan cuando llegamos a la plataforma
+        succesParticles.Play();
+        //Nuestra booleana se convierte en true
+        //esto es para que ya no se generé ningún sonido 
+        //cuando hayamos concluido nuestro nivel de juego
         isTransitioning = true;
+        //
         audioSource.Stop();
         audioSource.PlayOneShot(succes);
         //Haremos el retraso en el tiempo para agregar un fx sonido al chocar
         //Y agregar efecto de particulas al chocar
-        GetComponent<Movement>().enabled = false;   
+        GetComponent<Movement>().enabled = false;
         Invoke("LoadNextLevel", levelLoadDelay);
     }
 
     void StartCrashSequence()
     {
+        crashParticles.Play();
         isTransitioning = true;
         audioSource.Stop();
         audioSource.PlayOneShot(crash);
@@ -104,16 +142,16 @@ public class Collision_Handler : MonoBehaviour
         GetComponent<Movement>().enabled = false;
 
         Invoke("ReloadLevel", levelLoadDelay);
-        
+
     }
 
-    
+
 
     //Método que se encarga de cargar el siguiente nivel
     //Básicamente son las mismas líneas de código que el método "ReloadLevel"
     //solamente agregamos un "+1" para que de este modo pueda decir que vamos a cargar la escena actual
     //más 1 que sería la que le sigue
-    void LoadNextLevel()
+    public void LoadNextLevel()
     {
 
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -128,7 +166,7 @@ public class Collision_Handler : MonoBehaviour
 
 
         //Si el indice de la siguiente escena es igual al número de escenas que hay en buildsettings
-        if(nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
         {
             //Entonces nextSceneIndex equivale a 0 que sería mi primer nivel de juego
             nextSceneIndex = 0;
@@ -146,13 +184,18 @@ public class Collision_Handler : MonoBehaviour
         //mediante el tipeo de número de escena o el nombre en sí
 
         //SceneManager.LoadScene(1);
-        
+
         //Estas líneas de código básicamente vuelven a cargar la escena que esta
         //activa en ese momento 
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }
 
+
     
+
+
+
+
 
 }
