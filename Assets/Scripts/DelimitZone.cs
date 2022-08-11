@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class DelimitZone : MonoBehaviour
 {
     //[SerializeField] Color col;
+    
    
 
     //Cuando el Drone está volando muy alto
@@ -40,13 +41,11 @@ public class DelimitZone : MonoBehaviour
     }
 
 
-
-
     public void LimitZone()
     {
+        
         print("<color=#C61301> ¡Ya te torcieron los puercos! </color>");
         SceneManager.LoadScene("GameOver");
-
 
     }
 

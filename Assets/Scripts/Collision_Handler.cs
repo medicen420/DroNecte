@@ -29,9 +29,16 @@ public class Collision_Handler : MonoBehaviour
 
     bool collisionDisabled = false;
 
+
+    [SerializeField] GameObject TimeL;
+    
+
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        TimeL.SetActive(false);
+        
     }
 
     void Update()
@@ -133,6 +140,7 @@ public class Collision_Handler : MonoBehaviour
 
     void StartCrashSequence()
     {
+        TimeL.SetActive(true);
         crashParticles.Play();
         isTransitioning = true;
         audioSource.Stop();
