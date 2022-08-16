@@ -19,7 +19,7 @@ public class DelimitZone : MonoBehaviour
             print("<color=#FDAA00> ¡Cuidado que te está torciendo la puerca! </color>");
             //Al pasar 3 segundo con el Player en el trigger 
             //Se manda llamar al método que carga nuestra escena GameOver
-            Invoke("LimitZone", 3);
+            Invoke("LimitZone", 5);
 
         }
 

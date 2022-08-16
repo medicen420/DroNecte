@@ -1669,9 +1669,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1379953352411793020}
+  - component: {fileID: 8004421973254290380}
   - component: {fileID: 7718004973952801986}
   - component: {fileID: 8459043085758646878}
-  - component: {fileID: 8004421973254290380}
+  - component: {fileID: 7757818079119540192}
   - component: {fileID: 5576675597855288224}
   m_Layer: 0
   m_Name: Drone
@@ -1718,6 +1719,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &8004421973254290380
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8864789060684024680}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 56
+  m_CollisionDetection: 0
 --- !u!65 &7718004973952801986
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1747,22 +1764,24 @@ MonoBehaviour:
   rotationThrust: 100
   mainEngine: {fileID: 8300000, guid: 29f43554227ba274b80100c1dc3446cd, type: 3}
   mainEngineParticle: {fileID: 324901660858577365}
---- !u!54 &8004421973254290380
-Rigidbody:
+--- !u!114 &7757818079119540192
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8864789060684024680}
-  serializedVersion: 2
-  m_Mass: 5
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 56
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a7eaf7db857644b896263ebe0b770f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelLoadDelay: 2
+  succes: {fileID: 8300000, guid: 661608a9e3918c541a12e8a83e78f63b, type: 3}
+  crash: {fileID: 8300000, guid: 1205bcf3b25dc0e42bd9b62a791c34bc, type: 3}
+  succesParticles: {fileID: 8764705742737801459}
+  crashParticles: {fileID: 8924439608435365611}
+  isTransitioning: 0
 --- !u!82 &5576675597855288224
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2052,6 +2071,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4436899185823514, guid: ab79a37535b979f48b6de56e3a0a5cb0, type: 3}
   m_PrefabInstance: {fileID: 8726235142365206571}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &8924439608435365611 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198204746014789312, guid: ab79a37535b979f48b6de56e3a0a5cb0, type: 3}
+  m_PrefabInstance: {fileID: 8726235142365206571}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8891179378100835309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2111,6 +2135,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 62198a3a5dbb64a4f9e1618929224faa, type: 3}
+--- !u!198 &8764705742737801459 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198631066050499358, guid: 62198a3a5dbb64a4f9e1618929224faa, type: 3}
+  m_PrefabInstance: {fileID: 8891179378100835309}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8893836418729041701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4100699973242056, guid: 62198a3a5dbb64a4f9e1618929224faa, type: 3}

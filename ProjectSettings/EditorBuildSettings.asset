@@ -7,11 +7,14 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Over.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    guid: c12a1d2d5bccf604a9e8c95241dcf3fd
   - enabled: 1
     path: Assets/Scenes/Under.unity
     guid: d40efce687fb3bf44921e8c8ee2f291e
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 92844214d4f836c42b3a2784c82ceda7
+  - enabled: 1
+    path: Assets/Scenes/Over_ZoneGame.unity
+    guid: a360feba1ad64e540af835c0846414d5
   m_configObjects: {}
