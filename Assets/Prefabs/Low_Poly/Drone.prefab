@@ -1674,6 +1674,7 @@ GameObject:
   - component: {fileID: 8459043085758646878}
   - component: {fileID: 7757818079119540192}
   - component: {fileID: 5576675597855288224}
+  - component: {fileID: 7299765731018457907}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Player
@@ -1878,6 +1879,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7299765731018457907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8864789060684024680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3159505870bbd8547bc148a14016cab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bolsita_1: {fileID: 0}
 --- !u!1001 &449660515489963177
 PrefabInstance:
   m_ObjectHideFlags: 0
