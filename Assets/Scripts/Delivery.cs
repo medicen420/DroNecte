@@ -44,6 +44,10 @@ public class Delivery : MonoBehaviour
             {
                 Deliverweed_2();
             }
+            else
+            {
+                Debug.Log("Ya no hay merca");
+            }
         }
     }
 
@@ -53,7 +57,7 @@ public class Delivery : MonoBehaviour
 
     public void Deliverweed()
     {
-        bolsitas[0].GetComponent<Pruebaa>().enabled = false;
+        bolsitas[0].GetComponent<Pos_weed>().enabled = false;
         bolsitas[0].AddComponent<Rigidbody>();
         bolsitas[0].GetComponent<Rigidbody>().useGravity = true;
         //bolsitas[0].AddComponent<Rigidbody>();
@@ -67,7 +71,7 @@ public class Delivery : MonoBehaviour
 
     public void Deliverweed_2()
     {
-        bolsitas[1].GetComponent<Pruebaa>().enabled = false;
+        bolsitas[1].GetComponent<Pos_weed>().enabled = false;
         bolsitas[1].AddComponent<Rigidbody>();
         bolsitas[1].GetComponent<Rigidbody>().useGravity = true;
     }

@@ -6,8 +6,15 @@ using UnityEngine.SceneManagement;
 public class DelimitZone : MonoBehaviour
 {
     //[SerializeField] Color col;
-    
-   
+    [SerializeField] GameObject Sirena;
+
+
+
+
+    public void Start()
+    {
+        Sirena.SetActive(false);
+    }
 
     //Cuando el Drone está volando muy alto
     private void OnTriggerEnter(Collider other)
@@ -20,6 +27,9 @@ public class DelimitZone : MonoBehaviour
             //Al pasar 3 segundo con el Player en el trigger 
             //Se manda llamar al método que carga nuestra escena GameOver
             Invoke("LimitZone", 5);
+
+            //Por el momento mandare activar el panel con la animación de la sirena de policia
+            Sirena.SetActive(true);
 
         }
 
@@ -36,7 +46,7 @@ public class DelimitZone : MonoBehaviour
             //Comentario en consola 
             print("<color=#00A0FB> ¡Eso estuvo cerca! </color>");
             //Debug.Log("Ya no te wachan los puercos");
-
+            Sirena.SetActive(false);
         }
     }
 

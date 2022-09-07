@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2880789389668448974}
+  - component: {fileID: 5869186531179501896}
   m_Layer: 0
   m_Name: Neighbour_1
-  m_TagString: Untagged
+  m_TagString: Cliente
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,8 +31,21 @@ Transform:
   m_Children:
   - {fileID: 5671689207535722493}
   m_Father: {fileID: 0}
-  m_RootOrder: 132
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5869186531179501896
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029550164616642796}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.2381134, y: 5.3238983, z: 1}
+  m_Center: {x: -0.08461892, y: 9.662582, z: 0.00000077476915}
 --- !u!1001 &5278036475020589078
 PrefabInstance:
   m_ObjectHideFlags: 0

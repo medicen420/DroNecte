@@ -6,7 +6,10 @@ public class Collision_Handler : MonoBehaviour
 {
     //Esta es la variable que contiene el tiempo de retraso
     //para volver a cargar el nivel de juego
-    [SerializeField] float levelLoadDelay = 2f;
+    [SerializeField] float levelLoadDelay = 3f;
+
+
+
     //Clip de audios para cuando llegamos a la meta final
     [SerializeField] AudioClip succes;
     //Clip de audio para cuando choque nuestro Drone
@@ -24,61 +27,28 @@ public class Collision_Handler : MonoBehaviour
 
 
 
-    //Si actualmente estamos en transición, entonces nmo hagas nada
+    //Si actualmente estamos en transición, entonces no hagas nada
     [SerializeField] bool isTransitioning = false;
 
     bool collisionDisabled = false;
 
 
-    //[SerializeField] GameObject TimeL;
-    
-
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        //TimeL.SetActive(false);
         
     }
 
     void Update()
     {
-        //RespondToDebugKeys();
+
     }
 
-
-    //Debug Keys
-    /* void RespondToDebugKeys()
-     {
-         //En el momento que presionamos L
-         if (Input.GetKeyDown(KeyCode.L))
-         {
-             //Cargamos el siguiente nivel de juego
-             LoadNextLevel();
-         }
-         //Este código nos ayuda a desactivar las colisiones 
-         //si presionamos "C" en nuestro teclado
-         /*else if (Input.GetKeyDown(KeyCode.C))
-         {
-             collisionDisabled = !collisionDisabled;
-         }
-
-
-     }*/
-
+   
 
     void OnCollisionEnter(Collision other)
     {
-        //Si no estamos en transición
-        //manda a ejecutar el código
-
-        //1er forma de hacerlo
-        /* if(isTransitioning == false)
-         {
-
-         }*/
-
-        //2da forma de hacerlo
 
         //Si estamos en transición
         //no ejecutes nada de este método
@@ -104,6 +74,7 @@ public class Collision_Handler : MonoBehaviour
 
                 break;
 
+
             //Si no es ninguno de los casos anteriores entonces
             //ejecuta por default lo siguiente
             default:
@@ -121,6 +92,8 @@ public class Collision_Handler : MonoBehaviour
 
     }
 
+
+    //Método para cuando nuestro Drone haya llegado a la meta final
     void StarSuccesSequence()
     {
         //Las partículas se activan cuando llegamos a la plataforma
@@ -135,9 +108,30 @@ public class Collision_Handler : MonoBehaviour
         //Haremos el retraso en el tiempo para agregar un fx sonido al chocar
         //Y agregar efecto de particulas al chocar
         GetComponent<Movement>().enabled = false;
+
+
+
+
+        //Ajustaremos el código para que se desbloque el siguiente nivel de juego
+        //una vez que hayamos entregado todas las bolsas de weed y hayamos llegado a la 
+        //landingpad (plataforma de aterrizaje)
+
+
+        //Para ello crearé diferentes escenas
+
+        //Escena de niveles
+        //en esta escena incluiremos todos los niveles de juego que existen dentro del juego
+
+
+
+        //Mandamos llamar al siguiente nivel de juego
         Invoke("LoadNextLevel", levelLoadDelay);
     }
 
+
+
+    //*********************************************
+    //Método para cuando nuestro Drone haya chocado
     void StartCrashSequence()
     {
         //TimeL.SetActive(true);
@@ -149,6 +143,8 @@ public class Collision_Handler : MonoBehaviour
         //choquemos nuestro drone, de este modo el jugador ya no podrá controllar el drone.
         GetComponent<Movement>().enabled = false;
 
+
+        //Mandamos llamar de nuevo al mismo nivel de juego
         Invoke("ReloadLevel", levelLoadDelay);
 
     }

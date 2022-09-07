@@ -21,7 +21,7 @@ public class Delimit_Posicion : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            Debug.Log("Regresa al nivel de juego");
+            Debug.Log("Regresa a la zona de juego");
             //Mandamos llamar al método después de 3 segundos, este se encargará
             //de Cargar la escena de "te saliste del nivel de juego"
             Invoke("FueradelNivel", 3);
@@ -44,5 +44,11 @@ public class Delimit_Posicion : MonoBehaviour
         Debug.Log("Game Over");
         SceneManager.LoadScene("Over_ZoneGame");
     }
+
+
+
+
+    
+
 
 }
