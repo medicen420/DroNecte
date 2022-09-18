@@ -34,9 +34,15 @@ public class Collision_Handler : MonoBehaviour
 
 
 
+
+    //Cámara que sigue al drone
+    public GameObject Cam_Drone;
+
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        Cam_Drone.SetActive(true);
         
     }
 
@@ -134,6 +140,8 @@ public class Collision_Handler : MonoBehaviour
     //Método para cuando nuestro Drone haya chocado
     void StartCrashSequence()
     {
+
+        Cam_Drone.SetActive(false);
         //TimeL.SetActive(true);
         crashParticles.Play();
         isTransitioning = true;
@@ -184,6 +192,7 @@ public class Collision_Handler : MonoBehaviour
     //que existen en el switch
     void ReloadLevel()
     {
+        Cam_Drone.SetActive(true);
         //Línea de código que me permite abrir una de las escenas
         //mediante el tipeo de número de escena o el nombre en sí
 
